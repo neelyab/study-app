@@ -52,9 +52,12 @@ class EggTimer extends Component {
         const seconds = Math.round((count/1000) % 60);
         const minutes = Math.floor((count/1000)/60);
         const timeLeft = this.state.count;
-
+        let currentSeconds = seconds < 10 ? `0${seconds}`: seconds;
+        let currentMinutes = minutes < 10 ? `0${minutes}`: minutes;
         this.setState({
-            seconds, minutes, count
+            seconds:currentSeconds, 
+            minutes:currentMinutes,
+            count
         })
        return {
            timeLeft
@@ -76,7 +79,7 @@ class EggTimer extends Component {
     }
 
    handleStart(e){
-       e.preventDefault()
+    e.preventDefault()
     this.setState({
         playStatus: Sound.status.STOPPED,
         study: true,
@@ -93,6 +96,7 @@ class EggTimer extends Component {
     const futureTime = Date.now() + (studyTime * 60 * 1000)
     const timerFunction = () => this.timer(futureTime)
     const handleTimeOut = () => this.handleTimeOut()
+    const {seconds, minutes} = this.state
 
     // set timeinterval for timer
     this.intervalTimer = setInterval(function(){
@@ -113,27 +117,27 @@ class EggTimer extends Component {
                 {this.state.timerOptions &&
                 <div>
                     <label htmlFor='time-limit'>Select time limit:</label>
-                <select className='time-limit' onChange={(e) =>this.handleTimeValue(e.target.value)}>
-                    <option name='1 minute' value={1}>1 minute</option>
-                    <option name='5 minutes' value={5}>5 minute</option>
-                    <option name='15 minutes' value={15}>15 minutes</option>
-                    <option name='30 minutes' value={30}>30 minutes</option>
-                </select>
-                </div>}
-                <Sound url={soundfile} playStatus={this.state.playStatus} debugMode={false}/>
+                    <select className='time-limit' onChange={(e) =>this.handleTimeValue(e.target.value)}>
+                        <option name='1 minute' value={1}>1 minute</option>
+                        <option name='5 minutes' value={5}>5 minute</option>
+                        <option name='15 minutes' value={15}>15 minutes</option>
+                        <option name='30 minutes' value={30}>30 minutes</option>
+                    </select>
+                    </div>}
+                    <Sound url={soundfile} playStatus={this.state.playStatus} debugMode={false}/>
 
-                {this.state.study && 
-                <span className='time'><p>{`${this.state.minutes}:${this.state.seconds}`}</p></span>}
+                    {this.state.study && 
+                    <span className='time'><p>{`${this.state.minutes}:${this.state.seconds}`}</p></span>}
 
-                {this.state.break &&
-                <p class='break'>BREAK!</p>}
+                    {this.state.break &&
+                    <p class='break'>BREAK!</p>}
 
-                {this.state.study === false &&
-                <button type='submit'>Start</button>
-                }
-                {this.state.study && 
-                <button onClick={()=>{this.handleStop()}}>Stop/Reset</button>
-                }
+                    {this.state.study === false &&
+                    <button type='submit'>Start</button>
+                    }
+                    {this.state.study && 
+                    <button onClick={()=>{this.handleStop()}}>Stop/Reset</button>
+                    }
                 </form>
             </div>
         </div>

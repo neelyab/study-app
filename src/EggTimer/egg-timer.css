@@ -5,10 +5,16 @@
     align-items: center;
     padding-top: 200px;
 }
+
 .egg-timer-form{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.egg-count {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row wrap;
 }
 .time-limit{
     display: block;
@@ -16,13 +22,35 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
-    width: 100px;
+    width: 150px;
+    background: #EDEBD7;
+    border: 1px solid #EDEBD7;
+    border-radius: 5px;
+    padding: 10px 5px;
+}
+select {
+   background: #EDEBD7;
+}
+select option {
+    font-size: 1.2em;
 }
 button {
-    background: white;
-    color: black;
-    border: 1px black solid;
-    padding: 5px 5px;
+    background: #92AD94;
+    color: white;
+    border: 1px #92AD94;
+    border-radius: 3px;
     margin-top: 10px;
-    width: 100px;
+    width: 150px;
+    padding: 10px 5px;
+    font-size: 1.2em;
+}
+.time {
+    font-family: 'Roboto:900';
+    font-weight: bold;
+    font-size: 3em;
+}
+.break {
+    font-family: 'Roboto:900';
+    font-weight: bold;
+    font-size: 3em;
 }

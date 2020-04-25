@@ -6,8 +6,8 @@ function App() {
   return (
     <main className='App'>
       <nav>
-        <li>About</li>
         <li>Home</li>
+        <li>About</li>
       </nav>
       <div className='body'>
         <EggTimer/>
