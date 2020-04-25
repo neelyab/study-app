@@ -1,5 +1,6 @@
 import React from 'react';
 import EggTimer from './EggTimer/egg-timer'
+import './app.css'
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
         <li>About</li>
         <li>Home</li>
       </nav>
-      <div className='egg-timer'>
+      <div className='body'>
         <EggTimer/>
       </div>
     </main>

@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import soundfile from '../audio/service-bell.mp3'
 import Sound from 'react-sound'
+import EggCount from '../EggCount/egg-count'
+import './egg-timer.css'
 
 
 class EggTimer extends Component {
@@ -9,7 +11,7 @@ class EggTimer extends Component {
         this.state = {
             break: false,
             study: false,
-            eggCount: 0,
+            eggCount: 3,
             minutes: 0,
             seconds: 0,
             playStatus: Sound.status.STOPPED,
@@ -72,7 +74,11 @@ class EggTimer extends Component {
    }    
     render(){
         return(
-            <div>
+        <div>
+            <div className='egg-count'>
+                <EggCount eggCount={this.state.eggCount} />
+            </div>
+            <div className = 'egg-timer'>
                 <form onSubmit={(e)=>{this.handleStart(e)}}>
                 <select onChange={(e) =>this.handleTimeValue(e.target.value)}>
                     <option name='1 minute' value={1}>1 minute</option>
@@ -88,6 +94,7 @@ class EggTimer extends Component {
                 <button type='submit'>Start</button>
                 </form>
             </div>
+        </div>
         )
     }
 }
