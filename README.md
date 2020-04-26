@@ -8,9 +8,9 @@ The study app is based on the Pomodoro technique. Traditionally, it used a tomat
 * React.js
 
 ### Screenshots
-![home screen](/img/study-timer-home.PNG)
-![timer screen](/img/study-timer-countdown.PNG)
-![break screen](/img/study-timer-break.PNG)
+![home screen](./img/study-timer-home.png)
+![timer screen](./img/study-timer-countdown.PNG)
+![break screen](./img/study-timer-break.PNG)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
