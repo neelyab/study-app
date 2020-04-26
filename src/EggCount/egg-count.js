@@ -1,5 +1,5 @@
 import React from 'react'
-import egg from './fried-egg.png'
+import egg from './fried-egg.PNG'
 import './egg-count.css'
 
 class EggCount extends React.Component {

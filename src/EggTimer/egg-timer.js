@@ -54,6 +54,7 @@ class EggTimer extends Component {
         const timeLeft = this.state.count;
         let currentSeconds = seconds < 10 ? `0${seconds}`: seconds;
         let currentMinutes = minutes < 10 ? `0${minutes}`: minutes;
+        
         this.setState({
             seconds:currentSeconds, 
             minutes:currentMinutes,
@@ -63,7 +64,7 @@ class EggTimer extends Component {
            timeLeft
        }
     }
-    
+    // function for stop button
     handleStop = ()=> {
         this.setState({
             stopped: true,
@@ -72,12 +73,13 @@ class EggTimer extends Component {
             count: 0,
             seconds: 0,
             minutes: 0,
+            time: 1,
             playStatus: Sound.status.STOPPED
 
         })
         clearInterval(this.intervalTimer)
     }
-
+    // function for start timer 
    handleStart(e){
     e.preventDefault()
     this.setState({
@@ -93,10 +95,10 @@ class EggTimer extends Component {
     const studyTime = this.state.time;
 
     //calculate the timer
-    const futureTime = Date.now() + (studyTime * 60 * 1000)
+    const futureTime = Date.now() + (studyTime * 60 * 1000) 
     const timerFunction = () => this.timer(futureTime)
     const handleTimeOut = () => this.handleTimeOut()
-    const {seconds, minutes} = this.state
+
 
     // set timeinterval for timer
     this.intervalTimer = setInterval(function(){
@@ -105,7 +107,11 @@ class EggTimer extends Component {
             handleTimeOut();
         } 
         }, 1000)
-    }   
+    }  
+    // clear interval when component unmounts
+    componentWillUnmount(){
+        clearInterval(this.intervalTimer)
+    }
     render(){
         return(
         <div>
@@ -114,9 +120,11 @@ class EggTimer extends Component {
             </div>
             <div className = 'egg-timer'>
                 <form className='egg-timer-form' onSubmit={(e)=>{this.handleStart(e)}}>
+                {this.state.break &&
+                    <p class='break'>BREAK!</p>}
                 {this.state.timerOptions &&
                 <div>
-                    <label htmlFor='time-limit'>Select time limit:</label>
+                    <label id='select-time' htmlFor='time-limit'>Select time limit:</label>
                     <select className='time-limit' onChange={(e) =>this.handleTimeValue(e.target.value)}>
                         <option name='1 minute' value={1}>1 minute</option>
                         <option name='5 minutes' value={5}>5 minute</option>
@@ -128,9 +136,6 @@ class EggTimer extends Component {
 
                     {this.state.study && 
                     <span className='time'><p>{`${this.state.minutes}:${this.state.seconds}`}</p></span>}
-
-                    {this.state.break &&
-                    <p class='break'>BREAK!</p>}
 
                     {this.state.study === false &&
                     <button type='submit'>Start</button>

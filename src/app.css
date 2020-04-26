@@ -6,8 +6,15 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
-
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
 nav {
     display: flex;
     flex-direction: row;

@@ -1,3 +1,14 @@
 .egg-picture{
-    height: 100px;
+    height: 80px;
+}
+.egg-count{
+    min-height: 100px;
+}
+@media only screen and (min-width: 960px){
+    .egg-picture{
+        height: 130px;
+    }
+    .egg-count{
+        min-height: 150px;
+    }
 }

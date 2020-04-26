@@ -3,28 +3,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 200px;
+    min-height: 275px;
+    min-width: 275px;
+    background-image: url("./egg-timer.PNG");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
 }
-
 .egg-timer-form{
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 .egg-count {
     margin-top: 20px;
     display: flex;
     flex-direction: row wrap;
+    justify-content: center;
+}
+#select-time{
+    color: black;
 }
 .time-limit{
     display: block;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10px;
-    width: 150px;
-    background: #EDEBD7;
-    border: 1px solid #EDEBD7;
+    margin-bottom: 40px;
+    width: 100px;
+    background: #EBB91C;
+    border: 1px solid #EBB91C;
     border-radius: 5px;
     padding: 10px 5px;
 }
@@ -34,23 +44,51 @@ select {
 select option {
     font-size: 1.2em;
 }
+select:hover {
+    cursor: pointer;
+}
 button {
     background: #92AD94;
     color: white;
     border: 1px #92AD94;
     border-radius: 3px;
-    margin-top: 10px;
+    margin-top: 20px;
     width: 150px;
     padding: 10px 5px;
     font-size: 1.2em;
 }
+button:hover {
+    cursor: pointer;
+}
 .time {
     font-family: 'Roboto:900';
     font-weight: bold;
-    font-size: 3em;
+    font-size: 2em;
+    color: black;
+    margin: 0;
+    padding-bottom: 100px;
+}
+.time>p {
+    margin: 0;
 }
 .break {
+    padding-top: 30px;
+    margin: 0;
     font-family: 'Roboto:900';
     font-weight: bold;
     font-size: 3em;
+    color: black;
+}
+
+@media only screen and (min-width: 760px) {
+    .egg-timer {
+        width: 500px;
+        height: 500px;
+    }
+    .time-limit{
+        width: 150px;
+    }
+    .time {
+        font-size: 3em;
+    }
 }
