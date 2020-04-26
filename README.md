@@ -1,3 +1,18 @@
+### About
+The study app is based on the Pomodoro technique. Traditionally, it used a tomato timer, but this app uses an egg timer. The user selects the amount of time they would like to study for and a count down is displayed on the screen. Fried eggs are accumulated after each study session is completed.
+
+### Technology Used
+* HTML
+* CSS
+* Javascript
+* React.js
+
+### Screenshots
+![home screen](img/study-timer-home.PNG)
+![timer screen](img/study-timer-countdown.PNG)
+![break screen](img/study-timer-break.PNG)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
